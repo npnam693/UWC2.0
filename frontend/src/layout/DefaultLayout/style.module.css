@@ -1,0 +1,17 @@
+.wrapApp{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.app{
+    /* width: 1440px; */
+    display: flex;
+    background-color: #FAFAFA;
+
+}
+.inner{
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+}

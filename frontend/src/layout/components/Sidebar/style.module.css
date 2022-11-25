@@ -1,0 +1,63 @@
+.sidebar{
+    flex: 1;
+    position: sticky;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #33418A, #34428C);
+
+}
+.top {
+    margin-bottom: 30px;
+    flex:1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0E1B6B;
+}
+.logoContent{
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    margin-left: 10px;
+}
+.center {
+    flex:12;
+}
+.menuItem{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 15px 0px;
+    text-decoration: none;
+    margin-left: 20px;
+    min-width: 200px;
+}
+.itemContent{
+    font-size: 2.0rem;
+    font-weight: 600;
+    color: #8E92BC;
+    text-transform: capitalize!important;
+}
+
+.itemContent.enable{
+    color: white
+}
+
+.bottom{
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.nameUser{
+    margin-left: 10px;
+    color: rgb(213, 213, 213)
+}
