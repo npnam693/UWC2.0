@@ -18,7 +18,7 @@ function DefaultLayout({children}) {
             <Sidebar />
             <div className = {styles.inner}>
                 <Navbar />
-                <div style={{flex:11}}>{children}</div>
+                <div style={{flex:11, marginLeft: '25px'}}>{children}</div>
             </div>
         </div> 
 

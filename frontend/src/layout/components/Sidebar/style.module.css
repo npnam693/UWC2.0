@@ -5,10 +5,9 @@
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(to bottom, #33418A, #34428C);
-
 }
 .top {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     flex:1;
     display: flex;
     align-items: center;
@@ -28,13 +27,13 @@
     display: flex;
     align-items: center;
     justify-content: left;
-    padding: 15px 0px;
+    padding: 6px 20px;
     text-decoration: none;
     margin-left: 20px;
-    min-width: 200px;
+    min-width: 100%;
 }
 .itemContent{
-    font-size: 2.0rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #8E92BC;
     text-transform: capitalize!important;
@@ -59,5 +58,26 @@
 }
 .nameUser{
     margin-left: 10px;
-    color: rgb(213, 213, 213)
+    color: rgb(213, 213, 213);
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.nameUser p {
+    width: 100%;
+    text-align: center;
+}
+
+.pattern{
+    height: 100vh;
+    object-fit: cover;
+    position: relative;
+}
+.sidebarContent{
+    position: absolute;
+    flex: 1;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }

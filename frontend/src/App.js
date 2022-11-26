@@ -3,6 +3,7 @@ import ChatPage from './pages/Chat'
 import OverviewPage from './pages/Overview'
 import TaskPage from './pages/Task'
 import ProfilePage from './pages/Chat'
+import UserPage from './pages/User'
 import Layout from "./layout/DefaultLayout";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
           <Route path = 'chat' index element ={<Layout><ChatPage/></Layout>}></Route>
           <Route path = 'task' index element ={<Layout><TaskPage/></Layout>}></Route>
           <Route path = 'profile' index element ={<Layout><ProfilePage/></Layout>}></Route>
+          <Route path = 'user' index element ={<Layout><UserPage/></Layout>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
