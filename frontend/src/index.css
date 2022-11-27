@@ -31,3 +31,10 @@ html *::-webkit-scrollbar {
   border-radius: 0;
   width: 8px;
 }
+
+.MuiDataGrid-cellContent{
+  font-size: 1.2rem;
+}
+.MuiDataGrid-columnHeaderTitle{
+  font-size: 1.2rem;
+}
