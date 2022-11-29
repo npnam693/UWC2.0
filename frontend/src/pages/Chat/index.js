@@ -15,8 +15,12 @@ const ChatPage = () => {
   const chatBody = useRef(null);
   const messEndRef = useRef(null);
   const [users, setUsers] = useState([]);
-  const fakeAvatar =
-    "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/125.jpg";
+  // eslint-disable-next-line
+  const [avt, setAvt] = useState(
+    "https://profilepicture7.com/img/img_dongman/2/-76423796.jpg"
+  );
+  const [name, setName] = useState("Lê Văn Lâm");
+  const [isOnline, setIsOnline] = useState(false);
   const fakeMessages = [
     { message: "Hello, tôi có vấn đề cần hỏi.", me: false },
     {
@@ -53,16 +57,29 @@ const ChatPage = () => {
       );
     } else {
       return (
-        <Message
-          key={index}
-          data={{ avatar: fakeAvatar, message: mess.message }}
-        />
+        <Message key={index} data={{ avatar: avt, message: mess.message }} />
       );
     }
   });
 
   const handleInput = (e) => {
     setMessage(e.target.value);
+  };
+
+  const handleEnter = (e) => {
+    if (e.keyCode === 13 || e.code === "Enter") {
+      handleSend();
+    }
+  };
+
+  const handleSelectUser = (e, userId) => {
+    axios
+      .get(`https://63823d929842ca8d3ca4bcfc.mockapi.io/staffs/${userId}`)
+      .then((data) => {
+        setAvt(data.data.avatar);
+        setName(data.data.name);
+        setIsOnline(!data.data.onDuty);
+      });
   };
 
   useEffect(() => {
@@ -108,7 +125,11 @@ const ChatPage = () => {
           </div>
           <div className={styles.listUsers}>
             {users.map((user) => (
-              <MessageUser key={user.id} data={user} />
+              <MessageUser
+                key={user.id}
+                data={user}
+                onSelect={(e, b) => handleSelectUser(e, b)}
+              />
             ))}
           </div>
         </Grid>
@@ -123,13 +144,13 @@ const ChatPage = () => {
                     border: "1px solid #cccccc",
                     cursor: "pointer",
                   }}
-                  src={
-                    "https://profilepicture7.com/img/img_dongman/2/-76423796.jpg"
-                  }
+                  src={avt}
                 ></Avatar>
                 <div className={styles.userInfo}>
-                  <h4 style={{ color: "#121212" }}>Lê Văn Lâm</h4>
-                  <p style={{ fontSize: "14px", color: "#a1a1a1" }}>Online</p>
+                  <h4 style={{ color: "#121212" }}>{name}</h4>
+                  <p style={{ fontSize: "14px", color: "#a1a1a1" }}>
+                    {isOnline ? "Online" : "Offline"}
+                  </p>
                 </div>
               </div>
               <div className={styles.headerTools}>
@@ -168,6 +189,7 @@ const ChatPage = () => {
               className={styles.chatInput}
               type="text"
               value={message}
+              onKeyDown={handleEnter}
               onChange={handleInput}
               style={{
                 flex: "1",

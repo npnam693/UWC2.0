@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { Avatar } from "@mui/material";
 import styles from "./style.module.css";
 
-function MessageUser({ data }) {
+function MessageUser({ data, onSelect }) {
   // const fakeTime = () => {
   //   const h = Math.round(Math.random() * 12);
   //   const m = Math.round(Math.random() * 60);
@@ -29,7 +30,12 @@ function MessageUser({ data }) {
   // };
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      onClick={(e) => {
+        onSelect(e, data.id);
+      }}
+    >
       <div className={styles.left}>
         <Avatar
           src={data.avatar}
@@ -72,4 +78,4 @@ function MessageUser({ data }) {
   );
 }
 
-export default MessageUser;
+export default memo(MessageUser);
