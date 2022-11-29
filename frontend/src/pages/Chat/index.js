@@ -13,6 +13,7 @@ import axios from "axios";
 
 const ChatPage = () => {
   const chatBody = useRef(null);
+  const messEndRef = useRef(null);
   const [users, setUsers] = useState([]);
   const fakeAvatar =
     "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/125.jpg";
@@ -32,7 +33,7 @@ const ChatPage = () => {
 
       me: true,
     },
-    { message: "Oke luôn ông dà", me: true },
+    { message: "Oke luôn ông dà", me: false },
     { message: "Ông chuẩn bị 2 két đi :>>", me: false },
     { message: "Oke luôn", me: true },
   ];
@@ -43,7 +44,13 @@ const ChatPage = () => {
 
   const renderMessage = messages.map((mess, index) => {
     if (mess.me) {
-      return <MyMessage key={index} data={{ message: mess.message }} />;
+      return (
+        <MyMessage
+          key={index}
+          data={{ message: mess.message }}
+          ref={messEndRef}
+        />
+      );
     } else {
       return (
         <Message
@@ -66,10 +73,6 @@ const ChatPage = () => {
       });
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    chatBody.current.scrollTo({ bottom: "0", behavior: "smooth" });
-  }, [messages]);
 
   const handleSend = () => {
     if (message.trim().length > 0) {
@@ -118,6 +121,7 @@ const ChatPage = () => {
                     width: "50px",
                     height: "50px",
                     border: "1px solid #cccccc",
+                    cursor: "pointer",
                   }}
                   src={
                     "https://profilepicture7.com/img/img_dongman/2/-76423796.jpg"
@@ -149,7 +153,7 @@ const ChatPage = () => {
             </div>
           </div>
           <div className={styles.chatBody} ref={chatBody}>
-            {<>{renderMessage}</>}
+            {renderMessage}
           </div>
           <div className={styles.chatBot}>
             <ChatBubbleOutlineIcon
