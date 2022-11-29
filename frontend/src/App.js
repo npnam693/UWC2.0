@@ -14,8 +14,17 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {
-          // user != null ? (
+        <>
+          <Route index element ={<Layout><OverviewPage/></Layout>}></Route>
+          <Route path = '/chat'  element ={<Layout><ChatPage/></Layout>}></Route>
+          <Route path = '/task'  element ={<Layout><TaskPage/></Layout>}></Route>
+          <Route path = '/profile'  element ={<Layout><ProfilePage/></Layout>}></Route>
+          <Route path = '/user'  element ={<Layout><UserPage/></Layout>}></Route>
+          <Route path = '/login'  element ={<LoginPage/>}></Route>
+
+        </>
+        {/* {
+          user != null ? (
             <>
               <Route index element ={<Layout><OverviewPage/></Layout>}></Route>
               <Route path = '/chat'  element ={<Layout><ChatPage/></Layout>}></Route>
@@ -25,18 +34,18 @@ function App() {
               <Route path = '/login'  element={<Navigate  to="/" />}></Route>
 
             </>
-          // ) : (
-          //     <>
-          //       <Route index element={<Navigate to="/login" />}></Route>
-          //       <Route path = '/chat'  element={<Navigate to="/login" />}></Route>
-          //       <Route path = '/task'  element={<Navigate to="/login" />}></Route>
-          //       <Route path = '/profile'  element={<Navigate  to="/login" />}></Route>
-          //       <Route path = '/login'  element ={<LoginPage/>}></Route>
-          //       <Route path = '/user'  element={<Navigate  to="/login" />}></Route>
-          //       <Route path = '/login'  element ={<LoginPage/>}></Route>
-          //     </>
-          // )
-        }
+          ) : (
+              <>
+                <Route index element={<Navigate to="/login" />}></Route>
+                <Route path = '/chat'  element={<Navigate to="/login" />}></Route>
+                <Route path = '/task'  element={<Navigate to="/login" />}></Route>
+                <Route path = '/profile'  element={<Navigate  to="/login" />}></Route>
+                <Route path = '/login'  element ={<LoginPage/>}></Route>
+                <Route path = '/user'  element={<Navigate  to="/login" />}></Route>
+                <Route path = '/login'  element ={<LoginPage/>}></Route>
+              </>
+          )
+        } */}
       </Routes>
     </BrowserRouter>
   )

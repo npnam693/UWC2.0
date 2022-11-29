@@ -1,0 +1,101 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+  
+.wrapper {
+    display: flex;
+    width: 1100px;
+    flex-direction: column;
+}
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.progressTask{
+    height: 230px;
+    width: 200px;
+    border: 1px solid;
+    background: #F6F6F7;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 15px;
+}
+.titleSection {
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 14px;
+}
+.progressTaskNum{
+    width: 57px;
+    position: relative;
+    text-align: center;
+    padding-top: 19px;
+    margin-left: -58px;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.doneTask {
+    height: 230px;
+    width: 350px;
+    background: #F7F9FB;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.stat{
+    height: 230px;
+    width: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.stateItem{
+    width: 165px;
+    height: 100px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.numState{
+    margin-top: -10px;
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.middle {
+    display: flex;
+    flex-direction: row;
+    max-width: 1100px;
+    justify-content: space-between;
+}
+
+.disposalList{
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 auto;			
+    width: 1100px;
+    overflow-x: scroll;
+}
+.arrowIcon{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+*::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 26px;
+  height: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb {        
+  box-shadow: inset 0 0 0 10px;
+}

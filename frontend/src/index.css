@@ -26,15 +26,28 @@ body {
   overflow-y: overlay;
 }
 
-/* Scrollbar css */
-html *::-webkit-scrollbar {
-  border-radius: 0;
-  width: 8px;
+/* Scrollbar css */ */
+/* *::-webkit-scrollbar,
+*::-webkit-scrollbar-thumb {
+  width: 26px;
+  border-radius: 13px;
+  background-clip: padding-box;
+  border: 10px solid transparent;
 }
 
+*::-webkit-scrollbar-thumb {        
+  box-shadow: inset 0 0 0 10px;
+} */
+
 .MuiDataGrid-cellContent{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
 }
 .MuiDataGrid-columnHeaderTitle{
-  font-size: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.MuiLinearProgress-bar{
+  background: #1E2968 !important;
 }
