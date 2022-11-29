@@ -53,42 +53,45 @@ function createData(id, user, disposal, des, time, status) {
 
 export default function ColumnGroupingTable({staffs, disposals, mcps, vehicles}) {
     const [page, setPage] = React.useState(0);
-    const [janitorTasks, setJanitorTasks] = React.useState();
+    const [collectorTask, setcollectorTask] = React.useState();
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
     };
     
     useEffect(()=>{
-        axios.get(`https://638265da281f14ffefa75b07.mockapi.io/janitor_tasks`)
+        axios.get(`https://638265da281f14ffefa75b07.mockapi.io/collector_tasks`)
             .then(res => {
-                setJanitorTasks(res.data)
+                setcollectorTask(res.data)
             })
             .catch(err => console.log(err))
     }, [])
 
     let rows = []
-    if (janitorTasks !== undefined && staffs !== undefined && disposals !== undefined) {
-        console.log('janitor tasks', janitorTasks)
-        rows = janitorTasks.map(janTask => {
+    if (collectorTask !== undefined && staffs !== undefined && disposals !== undefined) {
+        console.log('collectorTask', collectorTask)
+        rows = collectorTask.map(collectTask => {
+            console.log(collectTask.id)
             var _id = ""
-            if (janTask.id.length === 1) _id = '00' + janTask.id
-            else if (janTask.id.length === 2) _id = '0' + janTask.id 
-            _id = 'JNT' + _id
+            if (collectTask.id.length === 1) _id = '00' + collectTask.id
+            else if (collectTask.id.length === 2) _id = '0' + collectTask.id 
+            _id = 'CLT' + _id
             
-            const _user = staffs.find(staff => staff.id === janTask.janitor_id).name
+            const _user = staffs.find(staff => staff.id === collectTask.collector_id).name
             
-            const _disposal = disposals.find(disposal => disposal.id === janTask.disposal_id).name
+            const _disposal = disposals.find(disposal => disposal.id === collectTask.disposal_id).name
             
-            const _mcp = janTask.list_mcps.join(' -> ')
+            const _route = collectTask.route.join('->')
             
-            const _time = Date(janTask.time).substring(0, Date(janTask.time).length - 25)
+            const _time = Date(collectTask.time).substring(0, Date(collectTask.time).length - 25)
             
-            const _status = janTask.status
+            const _status = collectTask.status
 
-            return createData(_id, _user, _disposal, _mcp, _time, _status)
+            return createData(_id, _user, _disposal, _route, _time, _status)
         })
     }
+
+
 
     const printStatus = (status) => {
         if (status === "Success") {
@@ -119,8 +122,8 @@ export default function ColumnGroupingTable({staffs, disposals, mcps, vehicles})
     }
 
 return (
-    <Paper sx={{ width: '100%' }}>
-      <TableContainer sx={{ minHeight: 300 }}>
+    <Paper sx={{ width: '100%', borderRadius: 3, marginTop: '15px', position: 'relative'}}>
+      <TableContainer sx={{ minHeight: 300 , borderRadius: 3}}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -160,14 +163,18 @@ return (
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
+      <TablePagination 
+        backIconButtonProps = {<p>ALO</p>}
         rowsPerPage={5}
         component="div"
         count={rows.length}
         page={page}
         rowsPerPageOptions={[]}
         onPageChange={handleChangePage}
-      />
+        >
+        </TablePagination>
     </Paper>
   );
 }
+
+

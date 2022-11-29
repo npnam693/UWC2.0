@@ -6,13 +6,20 @@ import CircularProgress from '@mui/material/CircularProgress';
 import DisposalItem from '../../components/Overview/DisposalItem';
 import Chart from '../../components/Overview/Chart'
 import Skeleton from '@mui/material/Skeleton';
-import Table from '../../components/Overview/Table'
+import JanitorTable from '../../components/Overview/Table/JanitorTask'
+import CollectorTable from '../../components/Overview/Table/CollectorTask'
+
+
+import Button from '@mui/material/Button';
 
 const OverviewPage = () => {
     const [staffs, setStaffs] = useState()
     const [disposals, setDisposals] = useState()
     const [mcps, setMcps] = useState()
     const [vehicles, setVehicles] = useState()
+
+
+    const [tableTask, setTableTask] = useState('collector')
 
     const [taskValue, setTaskValue]  = useState()
     setTimeout(() => {
@@ -143,7 +150,24 @@ const OverviewPage = () => {
                 </div>
 
             } */}
-            <Table staffs ={staffs} disposals = {disposals} mcps = {mcps} vehicles = {vehicles} />
+            <div style={{position:'relative'}}>
+                {
+                    tableTask === 'collector' ?
+                        <>
+                            <CollectorTable staffs ={staffs} disposals = {disposals} mcps = {mcps} vehicles = {vehicles} />
+                            <Button variant="contained" sx={{position:'absolute', margin: '10px', zIndex:10, bottom:'2px'}}
+                                onClick={() => setTableTask('janitor')}
+                            >Janitor Task</Button>
+                        </> :
+                        <>
+                            <JanitorTable staffs ={staffs} disposals = {disposals} mcps = {mcps} vehicles = {vehicles} />
+                            <Button variant="contained" sx={{position:'absolute', margin: '10px', zIndex:10, bottom:'2px'}}
+                                onClick={() => setTableTask('collector')}
+                            >Collector Task</Button>
+                        </>
+                }
+                
+            </div>
         </div>
     )
 }
