@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 
 
 
-
 const Login = () => {
     const [accounts, setAccount] = useState()
     const [username, setEmail] = useState()
@@ -21,21 +20,28 @@ const Login = () => {
 
     const handleSubmit = () => {
         accounts.map((account)=> {
-            if (accounts.some(account => account.username == username && account.password == password)){
+            if (accounts.some(account => account.username === username && account.password === password)){
                 localStorage.setItem("userInfo", JSON.stringify(account));
             }
+            return 0
         })
         const user = JSON.parse(localStorage.getItem("userInfo"))
-        if (user) alert("success")
+        if (user) window.location.reload();
         else alert("fail")
-            
     };
 
     return (
         <div>
             <input type="text" onChange={(e) => setEmail(e.target.value)}/>
             <input type="text" onChange={(e) => setPassword(e.target.value)}/>
-            <button onClick={handleSubmit}>Dăng nhap</button>
+            <button onClick={handleSubmit} className={'btnSubmit'}>Dăng nhap</button>
+
+            <p>
+                username: admin
+                <br/>
+                pass: admin
+
+            </p>
         </div>
     )
 }

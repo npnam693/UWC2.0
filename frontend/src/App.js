@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import { Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import ChatPage from './pages/Chat'
 import OverviewPage from './pages/Overview'
 import TaskPage from './pages/Task'
@@ -9,7 +9,7 @@ import LoginPage from './pages/Login'
 import Layout from "./layout/DefaultLayout";
 
 function App() {
-  // const user = JSON.parse(localStorage.getItem("userInfo"))
+  const user = JSON.parse(localStorage.getItem("userInfo"))
 
   return (
     <BrowserRouter>

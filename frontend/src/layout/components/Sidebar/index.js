@@ -7,12 +7,16 @@ import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import PortraitRoundedIcon from "@mui/icons-material/PortraitRounded";
 import SmsRoundedIcon from "@mui/icons-material/SmsRounded";
 // eslint-disable-next-line
-import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import ManageAccountsRoundedIcon from "@mui/icons-material/ManageAccountsRounded";
+import LogoutIcon from '@mui/icons-material/Logout';
+// import { useNavigate } from "react-router-dom";
+
+
+
 const Sidebar = () => {
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf("/"));
-
+  // let navigate = useNavigate()
   const MenuItem = [
     {
       content: "Overview",
@@ -148,6 +152,16 @@ const Sidebar = () => {
                 </Link>
               </Button>
             ))}
+                <Button onClick={() => {
+                  localStorage.removeItem("userInfo")
+                  window.location.reload();
+                }
+                }>
+                <Link className={styles.menuItem} to={'/'}>
+                    <LogoutIcon sx={{ fontSize: "2.2rem", color: "#8E92BC", marginRight: "10px" }}/>
+                      <p className={styles.itemContent}>Đăng xuất</p>
+                </Link>
+                </Button>
           </ul>
         </div>
         <div className={styles.bottom}>
