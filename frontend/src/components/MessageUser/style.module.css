@@ -1,0 +1,34 @@
+.wrapper {
+    display: block;
+    width: 100%;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    height: 60px;
+
+}
+
+.wrapper:hover {
+    cursor: pointer;
+    background-color: #ebfdf2;
+    border: 1px solid #b6ffd2;
+    user-select: none;
+}
+
+.left {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.info {
+    margin-left: 4px;
+}
+
+.right {
+    font-size: 14px;
+    font-weight: 300;
+}
