@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.wrapper {
+    height: 82vh;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex: 1 !important;
+    flex-wrap: nowrap;
+}
+
+.userBox {
+    background-color: #fff;
+    border-radius: 8px 0 0 8px;
+    height: 82vh;
+    overflow-y: hidden;
+}
+
+.searchBox {
+    margin: 8px 8px 12px 8px;
+    border: 1px solid #8e8e8e;
+    border-radius: 8px;
+    width: calc(100% - 24px);
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.searchInput {
+    flex: 1;
+    font-size: 16px;
+    border: none;
+    margin-right: 4px;
+    height: 100%;
+    background-color: transparent;
+    outline: none;
+}
+
+.listUsers {
+    margin: 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(100% - 16px);
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+}
+
+.chatBox {
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.chatTop {
+    height: 64px;
+    width: 100%;
+    border: 1px solid #8e8e8e;
+    border-bottom: 1px solid #8e8e8e;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chatBody {
+    align-content: stretch;
+    width: 100%;
+    height: calc(100% - 136px);
+    border: 1px solid #8e8e8e;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: scroll;
+}
+
+.chatBot {
+    margin-top: 8px;
+    height: 64px;
+    border: 1px solid #8e8e8e;
+    width: 100%;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatHeader {
+    height: 100%;
+    margin: 0 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerUser {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.userInfo {
+    margin-left: 4px;
+}
+
+.headerTools {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
