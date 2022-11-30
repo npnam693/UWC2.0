@@ -13,9 +13,9 @@ function CreateTask() {
         setValue(value)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         axios.get('https://63823d929842ca8d3ca4bcfc.mockapi.io/DisposalFacility')
-            .then((response)=>{setDisposals(response.data)})
+            .then((response) => { setDisposals(response.data) })
             .catch(error => console.log(error))
 
         axios.get('https://63823d929842ca8d3ca4bcfc.mockapi.io/vehicles')
@@ -31,7 +31,7 @@ function CreateTask() {
                     <Tab style={{ fontSize: '20px' }} label="Janitor Task" value="2" />
                 </TabList>
             </Box>
-            <TabPanel value="1"><CreateCollectorTask disposals={disposals} vehicles={vehicles.filter(vehicle => vehicle.isCollectVehicle)}/></TabPanel>
+            <TabPanel value="1"><CreateCollectorTask disposals={disposals} vehicles={vehicles.filter(vehicle => vehicle.isCollectVehicle)} /></TabPanel>
             <TabPanel value="2"><CreateJanitorTask disposals={disposals} vehicles={vehicles.filter(vehicle => !vehicle.isCollectVehicle)} /></TabPanel>
         </TabContext>
     </>;

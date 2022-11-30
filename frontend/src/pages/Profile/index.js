@@ -4,7 +4,12 @@ import styles from './style.module.css'
 import { useState } from 'react'
 
 const ProfilePage = () => {
-    const [name, setName] = useState('Lê Văn Lâm')
+
+    const getLocal = JSON.parse(localStorage.getItem('userInfo'))
+
+    console.log(getLocal.username)
+
+    const [name, setName] = useState(getLocal.username)
     const [id, setId] = useState('123456')
     const [phone, setPhone] = useState('09751547')
     const [email, setEmail] = useState('lam@gmail.com')
@@ -56,10 +61,10 @@ const ProfilePage = () => {
     }
     return (
         <Stack border='3px solid #0E1B6B' borderRadius='8px' m='0 300px' justifyContent='center' alignItems='center'>
-            <Typography fontSize='27px' fontWeight={600} color='#0E1B6B'>Lê Văn Lâm</Typography>
+            <Typography fontSize='27px' fontWeight={600} color='#0E1B6B'>{name}</Typography>
             <img
                 className={styles.myImage}
-                src='https://s3-alpha-sig.figma.com/img/e4ea/ed6e/47d836180341759dd897537cf183719e?Expires=1670803200&Signature=KdkqJFgAOhzS6FYFAuU-8-zE0nqZ2wGVVHt18C7BN8YDFRrdACj6TdesSxgmDBAf7GqSU7770VCux0gQ-Jl~h9h41kFFLiDQ-HRDA4RSrwO0IBRQuDodcXuetjwuOZRpIk8Er3D8rmNYyWVrfx1P4lDzex7KISKbXmOpIohuNigAtgrDcaaecGNL82NCpMe8nX7ovXRrYoo93TzGEpkTk1G~KKUXe~n3KxTjlf50SYLWH2Al2waeUTNVQiz~31HL9nXHkFxvVzxecRVhjGKtItHqT~RCyA6PO1opAvkiGdXMkdbj9DocpDHFxCCEh7TLdMcVjSqNFOESx1bDS3raVg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'
+                src={getLocal.avatar}
                 alt='image-profile'
             />
             <Stack>
