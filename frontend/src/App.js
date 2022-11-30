@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import ChatPage from './pages/Chat'
 import OverviewPage from './pages/Overview'
 import TaskPage from './pages/Task'
-import ProfilePage from './pages/Chat'
+import ProfilePage from './pages/Profile'
 import UserPage from './pages/User'
 import LoginPage from './pages/Login'
 import Layout from "./layout/DefaultLayout";
