@@ -12,6 +12,9 @@ const Navbar = () => {
   if (id === "task") content = "ASSIGNMENT TASK";
   if (id === "profile") content = "PROFILE";
   if (id === "user") content = "USER";
+  if (id === "edittask") content = "EDIT TASK";
+  if (id === "assigntask") content = "ASSIGN TASK";
+  if (id === "createtask") content = "CREATE TASK";
   return (
     <div className={styles.navbar}>
       <p className={styles.navbarTitle}>{content}</p>
