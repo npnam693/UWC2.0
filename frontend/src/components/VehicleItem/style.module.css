@@ -1,0 +1,11 @@
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
