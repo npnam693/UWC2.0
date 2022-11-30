@@ -1,0 +1,16 @@
+.formWrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.formFooter {
+    width: 100%;
+    display: flex;
+}
+
+.createbtn{
+    font-size: 15px;
+    height: 40px;
+    flex-grow: 1;
+}

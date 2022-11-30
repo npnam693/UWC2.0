@@ -7,6 +7,7 @@ import ProfilePage from './pages/Chat'
 import UserPage from './pages/User'
 import LoginPage from './pages/Login'
 import Layout from "./layout/DefaultLayout";
+import CreateTask from "./pages/CreateTask";
 
 function App() {
   const user = JSON.parse(localStorage.getItem("userInfo"))
@@ -18,6 +19,7 @@ function App() {
           <Route index element ={<Layout><OverviewPage/></Layout>}></Route>
           <Route path = '/chat'  element ={<Layout><ChatPage/></Layout>}></Route>
           <Route path = '/task'  element ={<Layout><TaskPage/></Layout>}></Route>
+          <Route path='/task/create' element={<Layout><CreateTask /></Layout>}></Route>
           <Route path = '/profile'  element ={<Layout><ProfilePage/></Layout>}></Route>
           <Route path = '/user'  element ={<Layout><UserPage/></Layout>}></Route>
           <Route path = '/login'  element ={<LoginPage/>}></Route>
