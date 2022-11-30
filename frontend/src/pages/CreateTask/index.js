@@ -1,4 +1,4 @@
-import { Tab, Box} from "@mui/material";
+import { Tab, Box } from "@mui/material";
 import { TabContext, TabPanel, TabList } from "@mui/lab";
 import { useState } from "react";
 import CreateCollectorTask from "../../components/CreateTask/CreateCollectorTask";
@@ -13,7 +13,7 @@ function CreateTask() {
         <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                 <TabList onChange={handleChange} aria-label="Choose one of two field below">
-                    <Tab style={{fontSize: '20px'}} label="Collector Task" value="1" />
+                    <Tab style={{ fontSize: '20px' }} label="Collector Task" value="1" />
                     <Tab style={{ fontSize: '20px' }} label="Janitor Task" value="2" />
                 </TabList>
             </Box>
