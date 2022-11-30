@@ -8,12 +8,22 @@ import PortraitRoundedIcon from "@mui/icons-material/PortraitRounded";
 import SmsRoundedIcon from "@mui/icons-material/SmsRounded";
 // eslint-disable-next-line
 import ManageAccountsRoundedIcon from "@mui/icons-material/ManageAccountsRounded";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 // import { useNavigate } from "react-router-dom";
 
-
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import Collapse from "@mui/material/Collapse";
+import ExpandLess from "@mui/icons-material/ExpandLess";
+import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const Sidebar = () => {
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf("/"));
   // let navigate = useNavigate()
@@ -33,18 +43,106 @@ const Sidebar = () => {
         ),
     },
     {
-      content: "Task",
-      to: "/task",
-      icon:
-        id === "/task" ? (
-          <AssignmentRoundedIcon
-            sx={{ fontSize: "2.2rem", color: "white", marginRight: "10px" }}
-          />
-        ) : (
-          <AssignmentRoundedIcon
-            sx={{ fontSize: "2.2rem", color: "#8E92BC", marginRight: "10px" }}
-          />
-        ),
+      content: "task",
+      render: (
+        <List
+          sx={{ marginRight: "10px", color: "#8E92BC" }}
+          style={
+            id === "/assigntask" || id === "/edittask" || id === "/createtask"
+              ? { color: "white" }
+              : null
+          }
+          component="nav"
+        >
+          <ListItemButton onClick={handleClick} sx={{ marginLeft: "22px" }}>
+            <ListItemIcon>
+              <AssignmentRoundedIcon
+                sx={{ color: "#8E92BC", fontSize: "2.2rem" }}
+                style={
+                  id === "/assigntask" ||
+                  id === "/edittask" ||
+                  id === "/createtask"
+                    ? { color: "white" }
+                    : null
+                }
+              />
+            </ListItemIcon>
+            <p
+              className={styles.itemContent}
+              style={
+                id === "/assigntask" ||
+                id === "/edittask" ||
+                id === "/createtask"
+                  ? { color: "white", marginLeft: "-24px", marginRight: "20px" }
+                  : { marginLeft: "-24px", marginRight: "20px" }
+              }
+            >
+              Task
+            </p>
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </ListItemButton>
+          <Link to={"/edittask"} style={{ textDecoration: "none" }}>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <p
+                    style={
+                      id === "/edittask"
+                        ? {
+                            color: "white",
+                            marginLeft: "30px",
+                          }
+                        : { color: "#8E92BC", marginLeft: "30px" }
+                    }
+                  >
+                    Edit Task
+                  </p>
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </Link>
+          <Link to={"/assigntask"} style={{ textDecoration: "none" }}>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <p
+                    style={
+                      id === "/assigntask"
+                        ? {
+                            color: "white",
+                            marginLeft: "30px",
+                          }
+                        : { color: "#8E92BC", marginLeft: "30px" }
+                    }
+                  >
+                    Assign Task
+                  </p>
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </Link>
+          <Link to={"/createtask"} style={{ textDecoration: "none" }}>
+            <Collapse in={open} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                <ListItemButton sx={{ pl: 4 }}>
+                  <p
+                    style={
+                      id === "/createtask"
+                        ? {
+                            color: "white",
+                            marginLeft: "30px",
+                          }
+                        : { color: "#8E92BC", marginLeft: "30px" }
+                    }
+                  >
+                    Create Task
+                  </p>
+                </ListItemButton>
+              </List>
+            </Collapse>
+          </Link>
+        </List>
+      ),
     },
     {
       content: "User",
@@ -74,6 +172,7 @@ const Sidebar = () => {
           />
         ),
     },
+
     // {
     //     content: 'Setting',
     //     to: '/setting',
@@ -135,33 +234,44 @@ const Sidebar = () => {
         </div>
         <div className={styles.center}>
           <ul style={{ display: "flex", flexDirection: "column" }}>
-            {MenuItem.map((item, index) => (
-              <Button key={index}>
-                <Link className={styles.menuItem} to={item.to}>
-                  {item.icon}
-                  {id === item.to ? (
-                    <p
-                      className={styles.itemContent}
-                      style={{ color: "white" }}
-                    >
-                      {item.content}
-                    </p>
-                  ) : (
-                    <p className={styles.itemContent}>{item.content}</p>
-                  )}
-                </Link>
-              </Button>
-            ))}
-                <Button onClick={() => {
-                  localStorage.removeItem("userInfo")
-                  window.location.reload();
-                }
-                }>
-                <Link className={styles.menuItem} to={'/'}>
-                    <LogoutIcon sx={{ fontSize: "2.2rem", color: "#8E92BC", marginRight: "10px" }}/>
-                      <p className={styles.itemContent}>Đăng xuất</p>
-                </Link>
+            {MenuItem.map((item, index) =>
+              item.content !== "task" ? (
+                <Button key={index}>
+                  <Link className={styles.menuItem} to={item.to}>
+                    {item.icon}
+                    {id === item.to ? (
+                      <p
+                        className={styles.itemContent}
+                        style={{ color: "white" }}
+                      >
+                        {item.content}
+                      </p>
+                    ) : (
+                      <p className={styles.itemContent}>{item.content}</p>
+                    )}
+                  </Link>
                 </Button>
+              ) : (
+                item.render
+              )
+            )}
+            <Button
+              onClick={() => {
+                localStorage.removeItem("userInfo");
+                window.location.reload();
+              }}
+            >
+              <Link className={styles.menuItem} to={"/"}>
+                <LogoutIcon
+                  sx={{
+                    fontSize: "2.2rem",
+                    color: "#8E92BC",
+                    marginRight: "10px",
+                  }}
+                />
+                <p className={styles.itemContent}>Đăng xuất</p>
+              </Link>
+            </Button>
           </ul>
         </div>
         <div className={styles.bottom}>
