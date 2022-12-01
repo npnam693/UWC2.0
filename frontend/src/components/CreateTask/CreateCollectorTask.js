@@ -27,6 +27,7 @@ function CreateCollectorTask({disposals, vehicles}) {
     const [mcps, setMcps] = useState([])
     const [route, setRoute] = useState('')
     const [loading, setLoading] = useState(false)
+    console.log(route)
 
     // const { enqueueSnackbar, closeSnackbar } = useSnackbar();
     // const toast = (message, variantType) => {
@@ -46,7 +47,9 @@ function CreateCollectorTask({disposals, vehicles}) {
             disposal_id: disposal.id,
             time,
             vehicle_id: vehicle,
-            route 
+            route : mcps, 
+            collector_id: '',
+            status: 'Pending'
         })
         .then(res => {
             // toast('Tạo task thành công', 'success')
@@ -62,7 +65,8 @@ function CreateCollectorTask({disposals, vehicles}) {
 
     const createRoute = () => {
         const r = mcps.join('->')
-        setRoute(r)
+        console.log(mcps)
+        // setRoute(mcps)
     }
 
     let navigate = useNavigate()
@@ -99,7 +103,7 @@ function CreateCollectorTask({disposals, vehicles}) {
                     </span>)}
                     </div>
                     <Button onClick={createRoute}>Create route</Button>
-                    <span>{route}</span>
+                    <span>{mcps.join('->')}</span>
                 </FormGroup>
             
                 <FormControl fullWidth>
