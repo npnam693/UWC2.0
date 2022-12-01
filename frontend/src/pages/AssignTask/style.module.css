@@ -1,0 +1,14 @@
+*{
+    -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+
+.mainButton:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+    color: #4658AC;
+    border: 1px solid #4658AC;
+    transition: all 0.3s;
+}

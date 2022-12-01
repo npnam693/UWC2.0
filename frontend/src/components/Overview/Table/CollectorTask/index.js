@@ -77,11 +77,15 @@ export default function ColumnGroupingTable({staffs, disposals, mcps, vehicles})
             else if (collectTask.id.length === 2) _id = '0' + collectTask.id 
             _id = 'CLT' + _id
             
-            const _user = staffs.find(staff => staff.id === collectTask.collector_id).name
+            let _user = ''
+            if (collectTask.collector_id != '')
+              _user = staffs.find(staff => staff.id === collectTask.collector_id).name
             
             const _disposal = disposals.find(disposal => disposal.id === collectTask.disposal_id).name
             
-            const _route = collectTask.route.join('->')
+            let _route = ''
+            if (collectTask.route != '') 
+              _route = collectTask.route.join('->') 
             
             const _time = Date(collectTask.time).substring(0, Date(collectTask.time).length - 25)
             

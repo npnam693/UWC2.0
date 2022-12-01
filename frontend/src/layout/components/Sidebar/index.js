@@ -19,7 +19,7 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const Sidebar = () => {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
     setOpen(!open);
@@ -29,7 +29,7 @@ const Sidebar = () => {
   // let navigate = useNavigate()
   const MenuItem = [
     {
-      content: "Overview",
+      content: "Overview",  
       to: "/",
       icon:
         id === "/" ? (
@@ -201,7 +201,7 @@ const Sidebar = () => {
         alt="none"
       />
       <div className={styles.sidebarContent}>
-        <div className={styles.top}>
+        <Link className={styles.top}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -231,7 +231,7 @@ const Sidebar = () => {
             />
           </svg>
           <p className={styles.logoContent}>UWC 2.0</p>
-        </div>
+        </Link>
         <div className={styles.center}>
           <ul style={{ display: "flex", flexDirection: "column" }}>
             {MenuItem.map((item, index) =>

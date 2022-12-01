@@ -8,6 +8,7 @@ const Navbar = () => {
   const id = url.substring(url.lastIndexOf("/") + 1);
   var content;
   if (id === "") content = "OVERVIEW";
+  if (id === "create") content = "CREATE TASK";
   if (id === "chat") content = "MESSAGE";
   if (id === "task") content = "ASSIGNMENT TASK";
   if (id === "profile") content = "PROFILE";
