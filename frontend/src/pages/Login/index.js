@@ -8,7 +8,7 @@ import {FormControlLabel, Checkbox, Divider, TextField} from '@mui/material'
 const Login = () => {
     let navigate = useNavigate()
     const [accounts, setAccount] = useState()
-    const [username, setEmail] = useState()
+    const [username, setUsername] = useState()
     const [password, setPassword] = useState()
 
     useEffect(()=>{
@@ -74,7 +74,7 @@ const Login = () => {
               variant="outlined" 
               fullWidth 
               sx={{marginTop:'30px'}}
-              onChange={(e) => setPassword(e.target.value)}  
+              onChange={(e) => setUsername(e.target.value)}  
             />  
             <TextField 
               name = "Password"
