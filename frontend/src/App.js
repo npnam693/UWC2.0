@@ -12,130 +12,28 @@ import AssignTaskPage from "./pages/AssignTask";
 import EditTaskPage from "./pages/EditTask";
 
 function App() {
-  const user = JSON.parse(localStorage.getItem("userInfo"));
+  const user = JSON.parse(localStorage.getItem("userInfo"))
+  console.log(user)
+
 
   return (
     <BrowserRouter>
       <Routes>
-        {/* <>
-          <Route
-            index
-            element={
-              <Layout>
-                <OverviewPage />
-              </Layout>
-            }
-          ></Route>
-          <Route
-            path="/chat"
-            element={
-              <Layout>
-                <ChatPage />
-              </Layout>
-            }
-          ></Route>
-          <Route
-            path="/task"
-            element={
-              <Layout>
-                <TaskPage />
-              </Layout>
-            }
-          ></Route>
-          <Route
-            path="/profile"
-            element={
-              <Layout>
-                <ProfilePage />
-              </Layout>
-            }
-          ></Route>
-          <Route
-            path="/user"
-            element={
-              <Layout>
-                <UserPage />
-              </Layout>
-            }
-          ></Route>
-          <Route path="/login" element={<LoginPage />}></Route>
-        </> */}
         {user != null ? (
           <>
-            <Route index
-              element={
-                <Layout>
-                  <OverviewPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/chat"
-              element={
-                <Layout>
-                  <ChatPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/task"
-              element={
-                <Layout>
-                  <TaskPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/profile"
-              element={
-                <Layout>
-                  <ProfilePage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/user"
-              element={
-                <Layout>
-                  <UserPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/edittask"
-              element={
-                <Layout>
-                  <EditTaskPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/assigntask"
-              element={
-                <Layout>
-                  <AssignTaskPage />
-                </Layout>
-              }
-            ></Route>
-            <Route
-              path="/createtask"
-              element={
-                <Layout>
-                  <CreateTaskPage />
-                </Layout>
-              }
-            ></Route>
+            <Route index element={ <Layout><OverviewPage /></Layout>}></Route>
+            <Route path="/chat" element={ <Layout> <ChatPage /> </Layout>}></Route>
+            <Route path="/task" element={ <Layout> <TaskPage /> </Layout>}></Route>
+            <Route path="/profile" element={ <Layout> <ProfilePage /> </Layout>}></Route>
+            <Route path="/user" element={ <Layout> <UserPage /> </Layout> } ></Route>
+            <Route path="/edittask" element={ <Layout> <EditTaskPage /> </Layout> } ></Route>
+            <Route path="/assigntask" element={ <Layout> <AssignTaskPage /> </Layout> } ></Route>
+            <Route path="/createtask" element={ <Layout> <CreateTaskPage /> </Layout> } ></Route>
             <Route path="/login" element={<Navigate to="/" />}></Route>
           </>
         ) : (
           <>
-            <Route index element={<Navigate to="/login" />}></Route>
-            <Route path="/chat" element={<Navigate to="/login" />}></Route>
-            <Route path="/task" element={<Navigate to="/login" />}></Route>
-            <Route path="/profile" element={<Navigate to="/login" />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
-            <Route path="/user" element={<Navigate to="/login" />}></Route>
-            <Route path="/login" element={<LoginPage />}></Route>
+            <Route index element={<LoginPage />}></Route>
           </>
         )}
       </Routes>

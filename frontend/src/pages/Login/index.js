@@ -2,18 +2,17 @@ import axios from "axios";
 import { useState, useEffect } from 'react';
 import styles from './style.module.css'
 import Button from '@mui/material/Button';
-
+import { useNavigate } from "react-router-dom";
 const Login = () => {
+    let navigate = useNavigate()
     const [accounts, setAccount] = useState()
     const [username, setEmail] = useState()
     const [password, setPassword] = useState()
 
-    console.log(username, password)
     useEffect(()=>{
         axios.get(`https://638265da281f14ffefa75b07.mockapi.io/accounts`)
             .then(res => {
                 setAccount(res.data)
-                console.log(res.data)
             })
             .catch(err => console.log(err))
     }, [])
@@ -22,8 +21,9 @@ const Login = () => {
         const unserInfo = accounts.find(account => account.username === username && account.password === password)
         if (unserInfo){
             localStorage.setItem("userInfo", JSON.stringify(unserInfo));
-            window.location.reload();
-
+            // navigate('/')
+            location.reload();
+            // window.location.reload();
         }
         else alert("Sai tài khoản đăng nhập")
     };

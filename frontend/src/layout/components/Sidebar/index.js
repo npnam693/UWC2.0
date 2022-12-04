@@ -260,7 +260,7 @@ const Sidebar = () => {
             <Button
               onClick={() => {
                 localStorage.removeItem("userInfo");
-                window.location.reload();
+                location.reload();
               }}
             >
               <Link className={styles.menuItem} to={"/"}>
@@ -271,7 +271,7 @@ const Sidebar = () => {
                     marginRight: "10px",
                   }}
                 />
-                <p className={styles.itemContent}>Đăng xuất</p>
+                <p className={styles.itemContent}>Logout</p>
               </Link>
             </Button>
           </ul>
