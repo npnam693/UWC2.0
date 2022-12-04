@@ -7,7 +7,6 @@ const ProfilePage = () => {
 
     const getLocal = JSON.parse(localStorage.getItem('userInfo'))
 
-    console.log(getLocal.username)
 
     const [name, setName] = useState(getLocal.username)
     const [id, setId] = useState('123456')
@@ -60,7 +59,7 @@ const ProfilePage = () => {
         }
     }
     return (
-        <Stack border='3px solid #0E1B6B' borderRadius='8px' m='0 300px' justifyContent='center' alignItems='center'>
+        <Stack border='3px solid #0E1B6B' borderRadius='8px' m='0 100px' justifyContent='center' alignItems='center'>
             <Typography fontSize='27px' fontWeight={600} color='#0E1B6B'>{name}</Typography>
             <img
                 className={styles.myImage}

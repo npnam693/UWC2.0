@@ -11,6 +11,7 @@ function EditTaskPage() {
   const [vehicles, setVehicles] = useState();
   // eslint-disable-next-line
   const [tableTask, setTableTask] = useState("collector");
+  const [loading, setLoading] = useState()
   useEffect(() => {
     axios
       .get(`https://63823d929842ca8d3ca4bcfc.mockapi.io/staffs`)
@@ -39,6 +40,8 @@ function EditTaskPage() {
   }, []);
 
   return (
+    (staffs != undefined && disposals != undefined && mcps != undefined && vehicles != undefined)
+    &&
     <div style={{ position: "relative" }}>
       {tableTask === "collector" ? (
         <>

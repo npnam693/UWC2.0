@@ -1,9 +1,4 @@
-*{
-    -ms-overflow-style: none;
-}
-::-webkit-scrollbar {
-    display: none;
-}
+
 
 .mainButton:hover {
     cursor: pointer;

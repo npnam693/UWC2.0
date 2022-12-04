@@ -4,6 +4,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { Avatar } from "@mui/material";
 
 const Navbar = () => {
+  const getLocal = JSON.parse(localStorage.getItem('userInfo'))
   const url = window.location.pathname;
   const id = url.substring(url.lastIndexOf("/") + 1);
   var content;
@@ -33,9 +34,7 @@ const Navbar = () => {
           }}
         />
         <Avatar
-          src={
-            "https://as01.epimg.net/meristation_en/imagenes/2022/09/16/news/1663350140_632920_1663350705_noticia_normal.jpg"
-          }
+          src={getLocal.avatar}
           sx={{
             width: "40px",
             height: "40px",

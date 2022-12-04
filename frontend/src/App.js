@@ -62,8 +62,7 @@ function App() {
         </> */}
         {user != null ? (
           <>
-            <Route
-              index
+            <Route index
               element={
                 <Layout>
                   <OverviewPage />

@@ -20,7 +20,9 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 
 const Sidebar = () => {
   const [open, setOpen] = React.useState(false);
-
+  
+  const getLocal = JSON.parse(localStorage.getItem('userInfo'))
+  console.log('getLocal', getLocal);
   const handleClick = () => {
     setOpen(!open);
   };
@@ -201,7 +203,7 @@ const Sidebar = () => {
         alt="none"
       />
       <div className={styles.sidebarContent}>
-        <Link className={styles.top}>
+        <Link className={styles.top} style={{textDecoration: "none"}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -277,12 +279,12 @@ const Sidebar = () => {
         <div className={styles.bottom}>
           <img
             className={styles.avatar}
-            src="https://as01.epimg.net/meristation_en/imagenes/2022/09/16/news/1663350140_632920_1663350705_noticia_normal.jpg"
+            src={getLocal.avatar}
             alt="avatar"
           />
           <div className={styles.nameUser}>
-            <p>Sơn Tùng</p>
-            <p>tungson@mtp.com</p>
+            <p>{getLocal.name}</p>
+            <p>{getLocal.username}@uwc.com</p>
           </div>
         </div>
       </div>

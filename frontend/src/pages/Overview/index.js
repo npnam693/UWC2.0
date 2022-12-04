@@ -125,8 +125,8 @@ const OverviewPage = () => {
                     {
                         disposals !== undefined ?  disposals.map(disposal => (<DisposalItem data = {disposal}/>))
                         : (
-                            Array(4).fill(1).map(() =>
-                            <Skeleton animation="wave" height={200} width={255} variant="rectangular" style={{borderRadius: '10px', marginTop: 20, marginRight: 18}}/>
+                            Array(5).fill(1).map(() =>
+                                <Skeleton animation="wave" variant="rectangular" style={{width:'280px', height:'165px', borderRadius: '10px', marginTop: 20, marginRight: 18}}/>
                             )
                         )
                     }
@@ -134,22 +134,11 @@ const OverviewPage = () => {
 
             </div>
                 {
-                    disposals === undefined && <Skeleton animation="wave" height={8} width="90%" style={{marginTop: '-20px'}} />
+                    disposals === undefined && <Skeleton animation="wave" height={8} width="90%" style={{marginTop: '-15px'}} />
                 }
             <div className = {styles.bottom}>
             </div>
-            {/* {
-            (staffs == null || disposals == null) ? 
-                null : 
-                <div> 
-                    <p>Num Staffs: {staffs.length}</p>
-                    <p>Num Disposal: {disposals.length}</p>
-                    <p>Num Staffs: {staffs.length}</p>
-                    <p>Num Janitor: {staffs.filter(item => item.isCollector).length}</p>
-                    <p>Num Collector: {staffs.filter(item => !item.isCollector).length}</p>
-                </div>
 
-            } */}
             <div style={{position:'relative'}}>
                 {
                     tableTask === 'collector' ?
