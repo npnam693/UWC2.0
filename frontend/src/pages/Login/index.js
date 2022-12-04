@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import styles from './style.module.css'
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
+import {FormControlLabel, Checkbox, Divider, TextField} from '@mui/material'
+
 const Login = () => {
     let navigate = useNavigate()
     const [accounts, setAccount] = useState()
@@ -61,11 +63,33 @@ const Login = () => {
           </svg>
           <p className={styles.logoContent}>UWC 2.0</p>
         </a>
-            <input className = {styles.inputCon} type="text" onChange={(e) => setEmail(e.target.value)}/>
-            <input className = {styles.inputCon} type="password" onChange={(e) => setPassword(e.target.value)}/>
+            {/* <input className = {styles.inputCon} type="text" onChange={/> */}
+            {/* <input className = {styles.inputCon} type="password" onChange={(e) => setPassword(e.target.value)}/> */}
+
+
+            <TextField 
+              name = "username"
+              label="Username" 
+              type="text" 
+              variant="outlined" 
+              fullWidth 
+              sx={{marginTop:'30px'}}
+              onChange={(e) => setPassword(e.target.value)}  
+            />  
+            <TextField 
+              name = "Password"
+              label="Nhập mật khẩu" 
+              type="password" 
+              variant="outlined" 
+              fullWidth 
+              sx={{marginTop:'16px', marginBottom: '20px'}}
+
+              onChange={(e) => setPassword(e.target.value)}  
+            />
+
             <Button variant="contained" onClick={handleSubmit}  sx={{background:'#0E1B6B', fontSize:'12px', marginTop:'10px'}}> Đăng nhập
             </Button>
-            
+
             <p style={{marginTop:'25px'}}>Tài khoản</p>
             <p>Username: admin</p>
             <p>Password: admin</p>
