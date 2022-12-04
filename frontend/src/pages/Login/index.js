@@ -22,8 +22,8 @@ const Login = () => {
         if (unserInfo){
             localStorage.setItem("userInfo", JSON.stringify(unserInfo));
             // navigate('/')
-            location.reload();
-            // window.location.reload();
+            // location.reload();
+            window.location.reload();
         }
         else alert("Sai tài khoản đăng nhập")
     };

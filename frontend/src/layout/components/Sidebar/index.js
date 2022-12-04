@@ -260,7 +260,7 @@ const Sidebar = () => {
             <Button
               onClick={() => {
                 localStorage.removeItem("userInfo");
-                location.reload();
+                window.location.reload();
               }}
             >
               <Link className={styles.menuItem} to={"/"}>
